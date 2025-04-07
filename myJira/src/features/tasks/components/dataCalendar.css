@@ -1,0 +1,30 @@
+.rbc-header{
+    @apply text-[.875rem] pb-[4px] text-[#6c757d] border-none    /* font-normal pb-4 text-muted-foreground border-b-0; */
+}
+.rbc-header + .rbc-header{
+    @apply border-l-[0px]
+}
+.rbc-button-link {
+    @apply text-[12px] text-[#6c757d]
+}
+.rbc-month-row{
+    @apply min-h-[180px] border-t border-x;
+}
+:not(.rbc-month-row ~ .rbc-month-row).rbc-month-row{
+    @apply rounded-t-[.5rem]
+}
+.rbc-month-row:last-of-type{
+    @apply border-b rounded-[.5rem]
+}
+.rbc-month-view{
+    @apply border-none
+}
+.rbc-date-cell{
+    @apply p-[2px]
+}
+.rbc-today{
+    background: inherit;
+}
+.rbc-off-range-bg{
+    background: inherit;
+}
