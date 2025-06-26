@@ -1,0 +1,39 @@
+const HRLogo = ({ size = 120, className = "" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 120 120"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <rect x="10" y="10" width="100" height="100" rx="20" fill="#f59e0b" />
+
+    <text
+      x="60"
+      y="40"
+      textAnchor="middle"
+      fontSize="20"
+      fontWeight="bold"
+      fill="white"
+    >
+      HR
+    </text>
+
+    <g transform="translate(25, 50)">
+      <rect x="10" y="5" width="10" height="10" rx="5" fill="white" />
+      <rect x="12" y="18" width="6" height="12" rx="3" fill="white" />
+
+      <rect x="30" y="5" width="10" height="10" rx="5" fill="white" />
+      <rect x="32" y="18" width="6" height="12" rx="3" fill="white" />
+
+      <rect x="50" y="5" width="10" height="10" rx="5" fill="white" />
+      <rect x="52" y="18" width="6" height="12" rx="3" fill="white" />
+
+      <rect x="10" y="33" width="50" height="3" rx="1.5" fill="#ffffff" fillOpacity="0.7" />
+    </g>
+
+    <circle cx="25" cy="25" r="3" fill="#ffffff" fillOpacity="0.3" />
+    <circle cx="95" cy="95" r="3" fill="#ffffff" fillOpacity="0.3" />
+  </svg>
+);
