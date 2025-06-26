@@ -263,12 +263,12 @@ export const salaryStructuresType = pgTable("salary_structures_type", {
 });
 
 export const insertSalaryStrucureTypeSchema = createInsertSchema(salaryStructuresType)
-  .extend({
-    country_name: z.string().optional(),
-    work_shedule_name : z.string().optional(),
-    pay_structure_name : z.string().optional(),
-    structureTypeId : z.string().optional(),
-  })
+  // .extend({
+  //   country_name: z.string().optional(),
+  //   work_shedule_name : z.string().optional(),
+  //   pay_structure_name : z.string().optional(),
+  //   structureTypeId : z.string().optional(),
+  // })
 export const selectSalaryStrucureTypeSchema = createSelectSchema(salaryStructuresType)
 export const updateSalaryStrucureTypeSchema = createUpdateSchema(salaryStructuresType)
 // .
@@ -299,12 +299,12 @@ export const salaryStructures = pgTable("salaryStructures", {
 });
 
 export const insertSalaryStrucureSchema = createInsertSchema(salaryStructures)
-.extend({
-  country_name:z.string().optional()
-})
+// .extend({
+//   country_name:z.string().optional()
+// })
 export const selectSalaryStrucureSchema = createSelectSchema(salaryStructures)
 export const updateSalaryStrucureSchema = createUpdateSchema(salaryStructures)
-.extend({structureId: z.string().optional()})
+// .extend({structureId: z.string().optional()})
 
 export const salaryRules = pgTable("salary_rules", {
   id: uuid("id").primaryKey().defaultRandom(),

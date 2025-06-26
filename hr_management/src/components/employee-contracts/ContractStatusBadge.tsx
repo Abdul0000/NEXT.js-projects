@@ -24,7 +24,7 @@ const ContractStatusBadge = ({ status, contract_id }: ContractStatusBadgeProps) 
 
   const updateStatus = trpc.employeeContracts.updateEmployeeContractStatus.useMutation({
     onSuccess: () => {
-      toast.success(`Employee contract updated successfully!`);
+      toast.success(`Contract status updated successfully!`);
       utils.employeeContracts.getOneContract.invalidate({ id:contract_id });
       utils.employeeContracts.getAllContracts.invalidate();
     },
@@ -53,7 +53,10 @@ const ContractStatusBadge = ({ status, contract_id }: ContractStatusBadgeProps) 
           <Button
             key={item}
             className={`${commonClasses} ${sizeClasses} ${dynamicStyle}`}
-            onClick={() => onStatusChange(lower)}
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              onStatusChange(lower)}}
           >
             {item}
           </Button>

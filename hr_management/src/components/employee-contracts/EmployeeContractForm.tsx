@@ -68,13 +68,15 @@ const EmployeeContractForm = ({ contract_id, title }: EmployeeContractFormProps)
   });
 
   const [contract] = trpc.employeeContracts.getOneContract.useSuspenseQuery({ id:contract_id });
-  const mergedData = contract ? {
+  const mergedData:insertEmployeeContractSchemaType & {department_name?:string,employee_name?:string} = contract ? {
     ...contract.employeeContracts,
-     department_name: contract.department_name,
-    employee_name: contract.employee_name
+    department_name: contract?.department_name ? contract.department_name : "",
+    employee_name: contract.employee_name ?? ""
   }
   :
-  {}
+  {
+    contract_name: ""
+  }
 
   const form = useForm<insertEmployeeContractSchemaType>({
     mode:"onBlur",
@@ -135,11 +137,7 @@ const EmployeeContractForm = ({ contract_id, title }: EmployeeContractFormProps)
             <div className="mt-2 sm:mt-0">
               <ContractStatusBadge
                 contract_id={contract_id}
-                status={
-                  mergedData && (mergedData as insertEmployeeContractSchemaType).status != null
-                    ? (mergedData as insertEmployeeContractSchemaType).status as string
-                    : "New"
-                }
+                status={mergedData.status ?? "new"}
               />
             </div>
           )}

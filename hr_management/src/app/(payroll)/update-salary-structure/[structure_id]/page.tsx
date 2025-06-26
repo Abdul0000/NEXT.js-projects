@@ -15,7 +15,7 @@ const page = async({params}:Props) => {
     } ; 
   const {structure_id} =await params
   const queryClient = getQueryClient()
-  void queryClient.prefetchQuery(trpc.payroll.getOneSalaryStructure?.queryOptions({ structureId: structure_id }))
+  void queryClient.prefetchQuery(trpc.payroll.getOneSalaryStructure?.queryOptions({ id: structure_id }))
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <Suspense fallback={<Loading/>}>

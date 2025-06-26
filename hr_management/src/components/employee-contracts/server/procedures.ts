@@ -88,7 +88,7 @@ export const newEmployeeContractRouter = createTRPCRouter({
           department_name: departments.department_name,
         })
         .from(employeeContracts)
-        .where(eq(employeeContracts.id, contract_id as string))
+        .where(eq(employeeContracts.id, contract_id ))
         .leftJoin(newEmployees, eq(employeeContracts.employee_id, newEmployees.id))
         .leftJoin(departments, eq(employeeContracts.department_id, departments.id));
 

@@ -9,12 +9,12 @@ export const payrollRouter = createTRPCRouter({
         const userId = ctx.session
         
         if(!userId) throw new Error("UNAUTHORIZED USER")
-        // const createdStructureType = await db.insert(salaryStructuresType).values({
-        //     userId,
-        //     ...input,
-        //     })
-        // if(!createdStructureType) throw new Error("Fail to create salary structure type")
-        // return createdStructureType
+        const createdStructureType = await db.insert(salaryStructuresType).values({
+            userId,
+            ...input,
+            })
+        if(!createdStructureType) throw new Error("Fail to create salary structure type")
+        return createdStructureType
     }),
     updateSalaryStructureType: protectedProcedure.input(updateSalaryStrucureTypeSchema).mutation(async({ctx, input})=>{
         const userId = ctx.session
@@ -86,18 +86,18 @@ export const payrollRouter = createTRPCRouter({
         const userId = ctx.session
         
         if(!userId) throw new Error("UNAUTHORIZED USER")
-        // const createdStructure = await db.insert(salaryStructures).values({
-        //     userId,
-        //     ...input
-        // })
-        // if(!createdStructure) throw new Error("Fail to create salary structure")
-        // return createdStructure
+        const createdStructure = await db.insert(salaryStructures).values({
+            userId,
+            ...input
+        })
+        if(!createdStructure) throw new Error("Fail to create salary structure")
+        return createdStructure
     }),
     updateSalaryStructure: protectedProcedure.input(updateSalaryStrucureSchema).mutation(async({ctx, input})=>{
         const userId = ctx.session
         
         if(!userId) throw new Error("UNAUTHORIZED USER")
-        const {structureId} = input
+        const {id:structureId} = input
         if(!structureId) throw new Error("MISSING STRUCTURE ID")
         const updatedStructure = await db.update(salaryStructures).set({
             userId,
@@ -110,7 +110,7 @@ export const payrollRouter = createTRPCRouter({
     .input(updateSalaryStrucureSchema)
     .query(async({ctx,input})=>{
         const userId = ctx.session
-        const {structureId} = input
+        const {id:structureId} = input
         if(!structureId) return false
         
         const [salaryStructure] = await db.select()

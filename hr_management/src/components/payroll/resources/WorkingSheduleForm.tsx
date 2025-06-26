@@ -119,7 +119,7 @@ const WorkingSheduleForm = ({shedule_id}:WorkingSheduleForm) => {
                     <Input
                       {...field}
                       name={String(field.name)}
-                      value={String(field.value) ?? ""}
+                      value={field.value != undefined ? String(field.value) : ""}
                       style={{ fontSize: "1.8rem" }}
                       className="border-0 border-b w-full rounded-none text-2xl"
                       placeholder="Standard 40 hours/week"
@@ -158,7 +158,7 @@ const WorkingSheduleForm = ({shedule_id}:WorkingSheduleForm) => {
                             type={f.type || "text"}
                             value={field.value != undefined ? String(field.value) : ""}
                             placeholder={f.placeholder}
-                            className={`${f.name === "flexible_hours" && "size-4 h-10"} border-0 border-b rounded-none`}
+                            className={`${f.name === "flexible_hours" && "size-4 float-left"} border-0 border-b rounded-none`}
                             onChange={
                               (e) => field.onChange(
                                 f.type === "number" 

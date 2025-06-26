@@ -55,14 +55,14 @@ const StructureForm = ({ structure_id, title }: EmployeeContractFormProps) => {
     onSuccess: () => {
       toast(`Salary structure updated successfully!`);
       utils.payroll.getAllSalaryStructurePage.invalidate();
-      utils.payroll.getOneSalaryStructure.invalidate({ structureId: structure_id });
+      utils.payroll.getOneSalaryStructure.invalidate({ id: structure_id });
     },
     onError: (error) => {
       console.error("Error updating salary structure", error);
     }
   });
 
-  const [getStructure] = trpc.payroll.getOneSalaryStructure.useSuspenseQuery({structureId:structure_id})
+  const [getStructure] = trpc.payroll.getOneSalaryStructure.useSuspenseQuery({id:structure_id})
   const spreadData = getStructure ? {
     ...getStructure
   }
@@ -137,7 +137,7 @@ const StructureForm = ({ structure_id, title }: EmployeeContractFormProps) => {
                       <Input
                         {...field}
                         name={String(field.value)}
-                        value={String(field.value )?? ""}
+                        value={field.value != undefined ? String(field.value ) : ""}
                         style={{ fontSize: '1.5rem' }}
                         className="border-0 border-b w-full placeholder:text-xl rounded-none lg:placeholder:text-2xl"
                         placeholder="Regular Pay"

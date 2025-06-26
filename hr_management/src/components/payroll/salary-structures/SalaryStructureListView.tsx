@@ -15,7 +15,9 @@ import { useEffect, useRef, useState, Fragment } from "react";
 import { cn } from "@/lib/utils";
 import { Checkbox } from "@/components/ui/checkbox";
 
-type SalaryStructure = z.infer<typeof insertSalaryStrucureSchema> 
+type SalaryStructure = z.infer<typeof insertSalaryStrucureSchema> &{
+  country_name?:string
+}
 
 interface ListViewProps {
   data: SalaryStructure[];

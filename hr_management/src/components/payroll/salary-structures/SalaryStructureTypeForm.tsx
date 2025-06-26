@@ -125,7 +125,7 @@ const scheduledPayOptions = [
                       <Input
                         {...field}
                         name={String(field.value)}
-                        value={String(field.value) ?? ""}
+                        value={field.value != undefined ? String(field.value) : ""}
                         style={{ fontSize: '1.5rem' }}
                         className="border-0 border-b w-full placeholder:text-xl rounded-none lg:placeholder:text-2xl"
                         placeholder="eg. Employee"
