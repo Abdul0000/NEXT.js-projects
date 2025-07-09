@@ -1,0 +1,25 @@
+{
+  "name": "next-nestjs",
+  "version": "0.0.1",
+  "dependencies": {
+    "@google/genai": "1.8.0",
+    "@nestjs/common": "11.1.3",
+    "@nestjs/core": "11.1.3",
+    "@nestjs/platform-express": "11.1.3",
+    "@nestjs/platform-socket.io": "11.1.3",
+    "@nestjs/websockets": "11.1.3",
+    "bullmq": "5.56.1",
+    "dotenv": "17.0.1",
+    "drizzle-orm": "0.44.2",
+    "drizzle-zod": "0.8.2",
+    "ioredis": "5.6.1",
+    "node-cron": "4.2.0",
+    "pg": "8.16.3",
+    "reflect-metadata": "0.1.14",
+    "resend": "4.6.0",
+    "rxjs": "7.8.1",
+    "socket.io": "4.8.1",
+    "zod": "3.25.74"
+  },
+  "main": "main.js"
+}
